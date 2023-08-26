@@ -40,11 +40,8 @@ public class Settings : MonoBehaviour
             Instance = this;
         }
 
-        if(xrOrigin != null)
-            xrOrigin.GetComponent<DynamicMoveProvider>().enabled = false;
-
-        if(buttonTutorialContinuar != null)
-            buttonTutorialContinuar.onClick.AddListener(OnButtonClick);
+        xrOrigin.GetComponent<DynamicMoveProvider>().enabled = false;
+        buttonTutorialContinuar.onClick.AddListener(OnButtonClick);
     }
 
     void Start()
@@ -56,15 +53,11 @@ public class Settings : MonoBehaviour
 
     void Update()
     {
-        if(xrOrigin != null)
+        xrOrigin.GetComponent<DynamicMoveProvider>().enabled = enableMoveXrOrigin;
+        if (countEnable == false && enableMoveXrOrigin)
         {
-            xrOrigin.GetComponent<DynamicMoveProvider>().enabled = enableMoveXrOrigin;
-            if (countEnable == false && enableMoveXrOrigin)
-            {
-                OnButtonClick();
-            }
+            OnButtonClick();
         }
-       
         // just in case want to modyfy directly the layermask of the raycast interacto.\
         // int layerMask = 1 << LayerMask.NameToLayer("Default");
 

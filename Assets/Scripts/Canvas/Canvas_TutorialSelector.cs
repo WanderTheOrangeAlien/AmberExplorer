@@ -106,10 +106,10 @@ public class Canvas_TutorialSelector : MonoBehaviour
             panelSets[panelID].SpanishPanelSet.SetActive(true);
         }
         buttonBack.gameObject.SetActive(true);
-        activateTutorials(panelID);
+        activeTutorials(panelID);
 
     }
-    public void activateTutorials(int panelID)
+    public void activeTutorials(int panelID)
     {
         Debug.Log(panelID + "huuuuu");
 
