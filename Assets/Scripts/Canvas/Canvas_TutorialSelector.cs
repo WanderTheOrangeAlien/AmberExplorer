@@ -67,7 +67,7 @@ public class Canvas_TutorialSelector : MonoBehaviour
                 };
 
 
-                selectorButtons[i].GetComponent<XRSimpleInteractable>().selectEntered.AddListener((SelectEnterEventArgs) =>
+                selectorButtons[i].GetComponent<XRSimpleInteractable>().activated.AddListener((SelectEnterEventArgs) =>
                 {
                     ChangePanelSet(panelIndex_);
                 });
@@ -106,10 +106,10 @@ public class Canvas_TutorialSelector : MonoBehaviour
             panelSets[panelID].SpanishPanelSet.SetActive(true);
         }
         buttonBack.gameObject.SetActive(true);
-        activeTutorials(panelID);
+        activateTutorials(panelID);
 
     }
-    public void activeTutorials(int panelID)
+    public void activateTutorials(int panelID)
     {
         Debug.Log(panelID + "huuuuu");
 
