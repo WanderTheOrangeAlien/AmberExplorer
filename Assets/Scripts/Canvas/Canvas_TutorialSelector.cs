@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+// using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class Canvas_TutorialSelector : MonoBehaviour
 {

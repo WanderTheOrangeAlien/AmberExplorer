@@ -31,11 +31,11 @@ Transform:
   m_GameObject: {fileID: 771000295313901521}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5.769, y: 1.3083323, z: -2.821016}
-  m_LocalScale: {x: 60.348694, y: 60.348694, z: 60.348694}
+  m_LocalScale: {x: 114.222, y: 114.222, z: 114.222}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &6583666493175859655
 MeshFilter:
@@ -100,8 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BrokenVersion: {fileID: 8338065776888870419, guid: 931dd1bd9940f1d4690b4172f03ac71f,
-    type: 3}
+  m_BrokenVersion: {fileID: 8338065776888870419, guid: 931dd1bd9940f1d4690b4172f03ac71f, type: 3}
   m_ColliderTag: Destroyer
   m_OnBreak:
     m_PersistentCalls:

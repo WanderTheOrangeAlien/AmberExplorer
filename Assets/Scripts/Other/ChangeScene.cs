@@ -8,7 +8,11 @@ public class ChangeScene : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Objeto entró en el trigger: " + other.gameObject.name);
-        SceneManager.LoadScene("Base Scene 1");
+        if (other.name == "XR Origin")
+        {
+
+            SceneManager.LoadScene("Example");
+        }
         // Aquí puedes realizar cualquier acción que desees cuando un objeto entre en el trigger
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using TMPro;
 
 public class Settings : MonoBehaviour
 {
@@ -38,12 +39,13 @@ public class Settings : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
-        if(xrOrigin != null)
+        if (xrOrigin != null)
             xrOrigin.GetComponent<DynamicMoveProvider>().enabled = false;
 
-        if(buttonTutorialContinuar != null)
+        if (buttonTutorialContinuar != null)
             buttonTutorialContinuar.onClick.AddListener(OnButtonClick);
     }
 
@@ -56,7 +58,7 @@ public class Settings : MonoBehaviour
 
     void Update()
     {
-        if(xrOrigin != null)
+        if (xrOrigin != null)
         {
             xrOrigin.GetComponent<DynamicMoveProvider>().enabled = enableMoveXrOrigin;
             if (countEnable == false && enableMoveXrOrigin)
@@ -64,7 +66,53 @@ public class Settings : MonoBehaviour
                 OnButtonClick();
             }
         }
-       
+
+        // TextMeshProUGUI textComponent1 = TutorialesText.GetComponent<TextMeshProUGUI>();
+        // TextMeshProUGUI textComponent2 = ControlesText.GetComponent<TextMeshProUGUI>();
+        // TextMeshProUGUI textComponent3 = HerramientasText.GetComponent<TextMeshProUGUI>();
+        // TextMeshProUGUI textComponent4 = SeguridadText.GetComponent<TextMeshProUGUI>();
+
+        // if (Instance.language == Language.Espanol)
+        // {
+
+        //     if (textComponent1 != null)
+        //     {
+        //         textComponent1.text = "Tutoriales";
+        //     }
+        //     if (textComponent2 != null)
+        //     {
+        //         textComponent2.text = "Controles";
+        //     }
+        //     if (textComponent3 != null)
+        //     {
+        //         textComponent3.text = "Herramientas";
+        //     }
+        //     if (textComponent4 != null)
+        //     {
+        //         textComponent4.text = "Seguridad";
+        //     }
+        // }
+        // else
+        // {
+
+        //     if (textComponent1 != null)
+        //     {
+        //         textComponent1.text = "Tutorials";
+        //     }
+        //     if (textComponent2 != null)
+        //     {
+        //         textComponent2.text = "Controls";
+        //     }
+        //     if (textComponent3 != null)
+        //     {
+        //         textComponent3.text = "Tools";
+        //     }
+        //     if (textComponent4 != null)
+        //     {
+        //         textComponent4.text = "Security";
+        //     }
+        // }
+
         // just in case want to modyfy directly the layermask of the raycast interacto.\
         // int layerMask = 1 << LayerMask.NameToLayer("Default");
 

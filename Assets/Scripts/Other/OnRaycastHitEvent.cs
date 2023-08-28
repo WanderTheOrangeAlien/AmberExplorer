@@ -17,6 +17,6 @@ public class OnRaycastHitEvent : MonoBehaviour
 
     private void Start()
     {
-        OnRaycastHit += () => { Debug.Log($"{gameObject.name}: Raycast Hit detected!"); };   
+        OnRaycastHit += () => { Debug.Log($"{gameObject.name}: Raycast Hit detected!"); };
     }
 }
