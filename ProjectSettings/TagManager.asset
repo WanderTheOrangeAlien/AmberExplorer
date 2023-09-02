@@ -8,6 +8,8 @@ TagManager:
   - Ambar
   - Spotlight
   - Axe
+  - Right Hand
+  - Left Hand
   layers:
   - Default
   - TransparentFX
