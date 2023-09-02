@@ -28,8 +28,14 @@ public class Settings : MonoBehaviour
     public bool enableMoveXrOrigin;
     public Button buttonTutorialContinuar;
     private bool countEnable;
+    public bool EnableVideos;
+
+    public Material v1;
+    public Material v2;
     private void Awake()
     {
+        v1.SetFloat("_MeshTransparent", -0.8517735f);
+        v2.SetFloat("_MeshTransparent", -0.8517735f);
         // If there is an instance, and it's not me, delete myself.
 
         if (Instance != null && Instance != this)
@@ -66,6 +72,7 @@ public class Settings : MonoBehaviour
                 OnButtonClick();
             }
         }
+
 
         // TextMeshProUGUI textComponent1 = TutorialesText.GetComponent<TextMeshProUGUI>();
         // TextMeshProUGUI textComponent2 = ControlesText.GetComponent<TextMeshProUGUI>();

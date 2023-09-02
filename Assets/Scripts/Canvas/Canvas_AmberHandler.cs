@@ -10,15 +10,15 @@ public class Canvas_AmberHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        AmberComponent.OnAmberCollected += DisplayAmberCollected;
+
+        // AmberComponent.OnAmberCollected += DisplayAmberCollected;
         amberDisplayMsg.parent.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void DisplayAmberCollected(AmberScriptableObject amberData)
@@ -48,7 +48,7 @@ public class Canvas_AmberHandler : MonoBehaviour
 
                 break;
         }
-    } 
+    }
 
 }
 

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b35e7c7da3f1a5498648d158c45e907, type: 3}
+  m_Name: amber_red
+  m_EditorClassIdentifier: 
+  id: amber_red
+  names:
+    Espanol: Ambar Rojo
+    English: Red Amber
+  texture: {fileID: 0}

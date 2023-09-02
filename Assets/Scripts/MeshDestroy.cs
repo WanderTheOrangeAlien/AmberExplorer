@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Timers;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Content.Interaction;
 /*
 public class Diamante: MeshDestroy{
 new void Start(){
@@ -11,6 +12,7 @@ Hiit = Random.Range(100, 999);
 }
 }
 */
+
 public class MeshDestroy : MonoBehaviour
 {
     //public AudioSource audioSource;
@@ -24,7 +26,7 @@ public class MeshDestroy : MonoBehaviour
 
     private bool Destroi = false;
 
-    public int Hiit=5;
+    public int Hiit = 5;
 
 
     public GameObject miiGameObject;
@@ -36,45 +38,49 @@ public class MeshDestroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        StartCoroutine(Example());   
-        
-                // Encuentra el Rigidbody del hijo
+
+        StartCoroutine(Example());
+
+        // Encuentra el Rigidbody del hijo
         //rb = miiGameObject.GetComponent<Rigidbody>();
-        
+
 
     }
 
-    void OnCollisionExit(Collision other){
-        if(other.collider.CompareTag("Axe")){
-            int golpeFuerza = UnityEngine.Random.Range(1,3);
-            miiGameObject.GetComponents<AudioSource>()[1].pitch=0.5f*golpeFuerza;
+    void OnCollisionExit(Collision other)
+    {
+        if (other.collider.CompareTag("Axe"))
+        {
+            int golpeFuerza = UnityEngine.Random.Range(1, 3);
+            miiGameObject.GetComponents<AudioSource>()[1].pitch = 0.5f * golpeFuerza;
             miiGameObject.GetComponents<AudioSource>()[1].Play();
             //Debug.Log(Hiit);
-            Hiit=Hiit-golpeFuerza;
+            Hiit = Hiit - golpeFuerza;
         }
     }
     IEnumerator Example()
     {
-        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(2.00f,4.00f));
-        if(Destroi){
-            
+        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(2.00f, 4.00f));
+        if (Destroi)
+        {
+
             Destroy(gameObject);
-            
-           
+
+
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (Hiit<=0)
+
+        if (Hiit <= 0)
         {
             miiGameObject.GetComponents<AudioSource>()[0].Play();
-            miiGameObject.GetComponent<Rigidbody>().isKinematic=false;
+            miiGameObject.GetComponent<Rigidbody>().isKinematic = false;
             //rb.isKinematic = false;
             miiGameObject.GetComponent<XRGrabInteractable>().enabled = true;
+            // miiGameObject.GetComponent<RayAttachModifier>().enabled = true;
             //audioSource.Play();
             DestroyMesh();
         }
@@ -202,7 +208,7 @@ public class MeshDestroy : MonoBehaviour
                                         original.UV[triangles[j + singleIndex]],
                                         Vector2.Lerp(original.UV[triangles[j + singleIndex]], original.UV[triangles[j + ((singleIndex + 1) % 3)]], lerp1),
                                         Vector2.Lerp(original.UV[triangles[j + singleIndex]], original.UV[triangles[j + ((singleIndex + 2) % 3)]], lerp2));
-                    
+
                     continue;
                 }
 
@@ -332,10 +338,10 @@ public class MeshDestroy : MonoBehaviour
             mesh.vertices = Vertices;
             mesh.normals = Normals;
             mesh.uv = UV;
-            for(var i = 0; i < Triangles.Length; i++)
+            for (var i = 0; i < Triangles.Length; i++)
                 mesh.SetTriangles(Triangles[i], i, true);
             Bounds = mesh.bounds;
-            
+
             var renderer = GameObject.AddComponent<MeshRenderer>();
             renderer.materials = original.GetComponent<MeshRenderer>().materials;
 
