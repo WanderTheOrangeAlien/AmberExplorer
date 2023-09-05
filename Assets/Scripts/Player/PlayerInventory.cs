@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
 
     public Dictionary<string, int> ItemList;
 
-    private int amberAmount;
+    public int amberAmount;
 
     [TextArea]
     public string monitor;
@@ -32,6 +32,14 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        AmberComponent.OnAmberCollected += (AmberScriptableObject amberData) =>
+        {
+            Instance.AddItem(amberData.itemID, 1);
+        };
+    }
+
 
     private void Update()
     {
@@ -49,14 +57,6 @@ public class PlayerInventory : MonoBehaviour
         {
             GameManager.Instance.InvokeGameOver();
         }
-    }
-
-    private void Start()
-    {
-        AmberComponent.OnAmberCollected += (string itemID) =>
-        {
-            Instance.AddItem(itemID, 1);
-        };
     }
 
 

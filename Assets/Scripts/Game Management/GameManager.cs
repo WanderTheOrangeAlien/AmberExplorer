@@ -5,13 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<Item> GameItems;
-    public AudioClip gameOverVoiceOver;
     public bool isGameOver = false;
 
     public delegate void GameOver();
     public event GameOver OnGameOver;
-
-    private AudioSource audioSource;
 
     public static GameManager Instance;
     
@@ -41,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+
     }
 
     public bool ItemExists(string id)

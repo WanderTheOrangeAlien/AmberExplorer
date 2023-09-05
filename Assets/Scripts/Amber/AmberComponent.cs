@@ -6,13 +6,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class AmberComponent : MonoBehaviour
 {
-    public delegate void AmberCollected(string itemId);
+    public delegate void AmberCollected(AmberScriptableObject ambarData);
     public static event AmberCollected OnAmberCollected;
     //public AmberScriptableObject amberData;
     public bool useCustomMesh = false, useCustomMaterial = false;
 
-
-    public string collectionAreaTag = "Score";
+    public AmberScriptableObject amberData;
 
     [Space(15)]
     public AudioClip collectedSound;
@@ -21,11 +20,8 @@ public class AmberComponent : MonoBehaviour
     public AudioClip collectedVoiceOver_ENG;
 
     [Space(20)]
-    public string itemId;
-    public Material amberMaterial;
-
-    [Space(20)]
     public GameObject amber;
+    public bool isCollected = false;
 
     private AudioClip voiceOver;
 
@@ -35,6 +31,7 @@ public class AmberComponent : MonoBehaviour
     private AudioSource audioSource;
 
     private AudioClip collectedVoiceOver;
+    private VoiceOverPlayer voiceOverPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -44,17 +41,24 @@ public class AmberComponent : MonoBehaviour
         xrGrabbable = GetComponent<XRGrabInteractable>();
         audioSource = GetComponent<AudioSource>();
 
+        voiceOverPlayer = FindObjectOfType<VoiceOverPlayer>();
+
         //meshFilter.mesh = amberData.model;
 
         if (useCustomMaterial)
         {
-            amber.GetComponent<MeshRenderer>().material = amberMaterial;
+            amber.GetComponent<MeshRenderer>().material = amberData.ambarMaterial;
         }
 
         //Call the Grab event
         xrGrabbable.selectEntered.AddListener((ActivateEventArgs) =>
         {
-            CollectedMethod();
+            if (!isCollected)
+            {
+                CollectedMethod();
+                isCollected = true;
+            }
+            
         });
 
         //Language dependent selection
@@ -76,30 +80,29 @@ public class AmberComponent : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == collectionAreaTag)
-        {
-            //OnAmberCollected(amberData);
-            Debug.Log($"{gameObject.name}: Detected collection area");
-
-        }
-    }
-
     public void CollectedMethod()
     {
+        audioSource.pitch = 1;
+
         audioSource.clip = collectedSound;
         audioSource.Play();
         Debug.Log("Wait time=" + collectedSound.length);
+        //Invoke methods are used for delay between audio clips
+
         Invoke("PlayVoiceOver", collectedSound.length - 1.5f);
 
-        Invoke("SendCollected", collectedSound.length + collectedVoiceOver.length);
+        Invoke("SendCollected", collectedSound.length);
     }
 
     public void SendCollected()
     {
         //Event
-        OnAmberCollected(itemId);
+        if(OnAmberCollected == null)
+        {
+            Debug.LogError("OnAmberCollected was null!!");
+        }
+
+        OnAmberCollected(amberData);
         audioSource.clip = collectedSound;
         audioSource.Play();
         gameObject.SetActive(false);
@@ -107,8 +110,7 @@ public class AmberComponent : MonoBehaviour
 
     public void PlayVoiceOver()
     {
-        audioSource.clip = collectedVoiceOver;
-        audioSource.Play();
+        voiceOverPlayer.playClip(collectedVoiceOver);
     }
 }
 

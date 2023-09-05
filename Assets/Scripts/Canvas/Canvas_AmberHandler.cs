@@ -5,51 +5,34 @@ using TMPro;
 
 public class Canvas_AmberHandler : MonoBehaviour
 {
-    public AmberDisplayMsg_t amberDisplayMsg;
 
-    // Start is called before the first frame update
-    void Start()
+    public TMP_Text counterText;
+    public GameObject UI;
+    public bool isUIActivated;
+
+    //Statiic event so that we can call it with public static methods
+    public delegate void ToggleUIDelegate();
+    public static event ToggleUIDelegate OnToggleUI;
+
+
+    private void Start()
     {
-
-        // AmberComponent.OnAmberCollected += DisplayAmberCollected;
-        amberDisplayMsg.parent.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        counterText.text = "x" + PlayerInventory.Instance.amberAmount.ToString();
+    }
+
+    public static void InvokeToggleUI()
+    {
+        OnToggleUI();
+    }
+
+    public void ToggleUI()
     {
 
     }
-
-    void DisplayAmberCollected(AmberScriptableObject amberData)
-    {
-        amberDisplayMsg.parent.SetActive(true);
-        //amberDisplayMsg.description.text = _amberInfo.description;
-        amberDisplayMsg.title.text = amberData.amberType.ToString();
-
-        Debug.Log("Ambar Recolectado: " + amberData.amberType.ToString());
-
-
-        switch (amberData.amberType)
-        {
-            case AmberType.Miel:
-
-                break;
-
-            case AmberType.Naranja:
-
-                break;
-
-            case AmberType.Rojo:
-
-                break;
-
-            case AmberType.Azul:
-
-                break;
-        }
-    }
-
 }
 
 [System.Serializable]

@@ -29,15 +29,21 @@ public class Settings : MonoBehaviour
     public Button buttonTutorialContinuar;
     private bool countEnable;
     public bool EnableVideos;
+    public bool checkBaseCasco;
+    public bool checkBaseChalecoDeSeguridad;
+    public bool checkTools;
+    public bool checkKeyCasco;
+    public bool checkKeyChaleco;
+
+    public bool EntradaCheck = false;
+    public bool SalidaCheck = false;
+    public bool GlobalAudio = false;
 
     public Material v1;
     public Material v2;
+    public Material[] ControlMaterial;
     private void Awake()
     {
-        v1.SetFloat("_MeshTransparent", -0.8517735f);
-        v2.SetFloat("_MeshTransparent", -0.8517735f);
-        // If there is an instance, and it's not me, delete myself.
-
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -47,6 +53,17 @@ public class Settings : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        v1.SetFloat("_MeshTransparent", -0.8517735f);
+        v2.SetFloat("_MeshTransparent", -0.8517735f);
+        // If there is an instance, and it's not me, delete myself.
+
+        foreach (var item in ControlMaterial)
+        {
+
+            item.SetFloat("_MeshTransparent", -1.87f);
+        }
+
+
 
         if (xrOrigin != null)
             xrOrigin.GetComponent<DynamicMoveProvider>().enabled = false;
