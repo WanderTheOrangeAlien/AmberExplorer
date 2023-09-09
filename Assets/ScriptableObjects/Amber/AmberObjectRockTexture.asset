@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa32f378c84b62b4b80e0c845a14e307, type: 3}
+  m_Name: AmberObjectRockTexture
+  m_EditorClassIdentifier: 
+  amberType: 2
+  itemID: amber_red
+  ambarMaterial: {fileID: 2100000, guid: fa266e1f0591eca48a6c65d34c194cde, type: 2}

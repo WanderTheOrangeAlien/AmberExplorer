@@ -2796,9 +2796,10 @@ Transform:
   m_GameObject: {fileID: 274700721}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3272, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1836151889}
   m_Father: {fileID: 9014170784446583432}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4163,6 +4164,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16005902245174108, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3624310751620336402, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
       propertyPath: m_Name
       value: AmberOre (7)
@@ -4171,6 +4176,18 @@ PrefabInstance:
       propertyPath: amberData
       value: 
       objectReference: {fileID: 11400000, guid: 29fa44ab1b56b474980796d3b6780293, type: 2}
+    - target: {fileID: 7224468712799035972, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.184
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224468712799035972, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229010571870148699, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8328724203503897231, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -4214,6 +4231,10 @@ PrefabInstance:
     - target: {fileID: 8328724203503897231, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897490960937676868, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8897490960937676868, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
       propertyPath: m_InteractionManager
@@ -22141,6 +22162,72 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.001
   m_Center: {x: 0, y: 0.01, z: 0}
+--- !u!1 &1836151888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836151889}
+  - component: {fileID: 1836151892}
+  - component: {fileID: 1836151890}
+  m_Layer: 0
+  m_Name: Deteccion de luz
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836151889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836151888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.1194472, y: 4.3828087, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 274700722}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836151890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836151888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778f5879aaf2cea47ad1aa2a8fa0c334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1836151892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836151888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.221964, y: 0.6580807, z: 15.272946}
+  m_Center: {x: 0.10329487, y: -0.27527896, z: 7.136473}
 --- !u!4 &1837845475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4976853331106008, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
@@ -26319,6 +26406,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.89
       objectReference: {fileID: 0}
+    - target: {fileID: 8897490960937676868, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26439,6 +26530,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16005902245174108, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3624310751620336402, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
       propertyPath: m_Name
       value: AmberOre
@@ -26486,6 +26581,10 @@ PrefabInstance:
     - target: {fileID: 8328724203503897231, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897490960937676868, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8897490960937676868, guid: 505067ce09291da4d9b30a7c698b4812, type: 3}
       propertyPath: m_InteractionManager
@@ -27935,7 +28034,7 @@ Transform:
   m_GameObject: {fileID: 7696548425071381463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9014170784232099497}
@@ -28120,7 +28219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useCustomMesh: 0
   useCustomMaterial: 1
-  amberData: {fileID: 11400000, guid: f373c0688d6405c42afa5fe716c80b1f, type: 2}
+  amberData:
+  - {fileID: 0}
   collectedSound: {fileID: 8300000, guid: e95bfd15493fa684385eb8fdd845e9e2, type: 3}
   disappearSound: {fileID: 8300000, guid: 540eba59010c64944bcd4237dcca2b42, type: 3}
   collectedVoiceOver_ESP: {fileID: 8300000, guid: 325eda81e0683e546af4f3b3450d0329, type: 3}

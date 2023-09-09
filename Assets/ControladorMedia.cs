@@ -192,6 +192,9 @@ public class ControladorMedia : MonoBehaviour
 
             if (currentClipIndex == 2 && audioSource.time <= 8)
             {
+                Color blanco = new Color(1f, 1f, 1f, 0);
+
+                BumperButtonXrController.SetColor("_BaseColor", blanco);
                 XRControllerLeft.SetActive(true);
                 if (Settings.Instance.SalidaCheck)
                 {

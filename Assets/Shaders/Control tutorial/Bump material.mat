@@ -54,10 +54,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _MeshTransparent: 1.87
+    - _MeshTransparent: -1.87
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _MainColor: {r: 0.04573691, g: 0.1368448, b: 0.34943, a: 0}
   m_BuildTextureStacks: []
