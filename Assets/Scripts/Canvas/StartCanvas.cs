@@ -44,7 +44,7 @@ public class StartCanvas : MonoBehaviour
 
         btn_Start.GetComponent<Button>().onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("Home_V1.2");
+            SceneManager.LoadScene("Home_V2.0");
         });
 
         btn_Exit.GetComponent<Button>().onClick.AddListener(() =>
