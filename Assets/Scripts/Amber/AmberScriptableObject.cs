@@ -7,10 +7,7 @@ public class AmberScriptableObject : ScriptableObject
 {
     public AmberType amberType;
     [Space(10)]
-    public Mesh model;
 
-    public Material hiddenMaterial;
-    public Material UVLightMaterial;
-    public Material cleanMaterial;
     public string itemID;
+    public Material ambarMaterial;
 }

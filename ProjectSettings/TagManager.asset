@@ -8,6 +8,9 @@ TagManager:
   - Ambar
   - Spotlight
   - Axe
+  - Right Hand
+  - Left Hand
+  - Pickaxe
   layers:
   - Default
   - TransparentFX

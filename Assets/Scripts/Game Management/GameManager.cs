@@ -5,8 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<Item> GameItems;
+    public bool isGameOver = false;
+
+    public delegate void GameOver();
+    public event GameOver OnGameOver;
 
     public static GameManager Instance;
+    
+
 
     private void Awake()
     {
@@ -23,8 +29,28 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void InvokeGameOver()
+    {
+        isGameOver = true;
+        OnGameOver();
+        
+    }
+
+    private void Start()
+    {
+
+    }
+
     public bool ItemExists(string id)
     {
-        return GameItems.Find(x => x.id == id);
+        try
+        {
+            return GameItems.Find(x => x.id == id);
+        }
+        catch
+        {
+            return false;
+        }
+        
     }
 }

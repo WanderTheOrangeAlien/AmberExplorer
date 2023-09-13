@@ -1,44 +1,116 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class AmberComponent : MonoBehaviour
 {
-    public delegate void AmberCollected(AmberScriptableObject data);
+    public delegate void AmberCollected(AmberScriptableObject ambarData);
     public static event AmberCollected OnAmberCollected;
+    //public AmberScriptableObject amberData;
+    public bool useCustomMesh = false, useCustomMaterial = false;
+
     public AmberScriptableObject amberData;
 
-    public string collectionAreaTag = "Score";
+    [Space(15)]
+    public AudioClip collectedSound;
+    public AudioClip disappearSound;
+    public AudioClip collectedVoiceOver_ESP;
+    public AudioClip collectedVoiceOver_ENG;
+
+    [Space(20)]
+    public GameObject amber;
+    public bool isCollected = false;
+
+    private AudioClip voiceOver;
 
     private MeshRenderer meshRenderer;
     private MeshFilter meshFilter;
+    private XRGrabInteractable xrGrabbable;
+    private AudioSource audioSource;
+
+    private AudioClip collectedVoiceOver;
+    private VoiceOverPlayer voiceOverPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();
+        xrGrabbable = GetComponent<XRGrabInteractable>();
+        audioSource = GetComponent<AudioSource>();
+
+        voiceOverPlayer = FindObjectOfType<VoiceOverPlayer>();
 
         //meshFilter.mesh = amberData.model;
-        meshRenderer.material = amberData.hiddenMaterial;
 
-        
-        
+        if (useCustomMaterial)
+        {
+            amber.GetComponent<MeshRenderer>().material = amberData.ambarMaterial;
+        }
+
+        //Call the Grab event
+        xrGrabbable.selectEntered.AddListener((ActivateEventArgs) =>
+        {
+            if (!isCollected)
+            {
+                CollectedMethod();
+                isCollected = true;
+            }
+            
+        });
+
+        //Language dependent selection
+        if (Settings.Instance.language == Language.English)
+        {
+            collectedVoiceOver = collectedVoiceOver_ENG;
+
+        }
+        else if (Settings.Instance.language == Language.Espanol)
+        {
+            collectedVoiceOver = collectedVoiceOver_ESP;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void CollectedMethod()
     {
-        if (other.gameObject.tag == collectionAreaTag)
+        audioSource.pitch = 1;
+
+        audioSource.clip = collectedSound;
+        audioSource.Play();
+        Debug.Log("Wait time=" + collectedSound.length);
+        //Invoke methods are used for delay between audio clips
+
+        Invoke("PlayVoiceOver", collectedSound.length - 1.5f);
+
+        Invoke("SendCollected", collectedSound.length);
+    }
+
+    public void SendCollected()
+    {
+        //Event
+        if(OnAmberCollected == null)
         {
-            Debug.Log($"{gameObject.name}: Detected collection area");
-            OnAmberCollected(amberData);
+            Debug.LogError("OnAmberCollected was null!!");
         }
+
+        OnAmberCollected(amberData);
+        audioSource.clip = collectedSound;
+        audioSource.Play();
+        gameObject.SetActive(false);
+    }
+
+    public void PlayVoiceOver()
+    {
+        voiceOverPlayer.playClip(collectedVoiceOver);
     }
 }
 
@@ -51,11 +123,4 @@ public enum AmberType
     Naranja,
     Rojo,
     Azul
-}
-[System.Serializable]
-public struct AmberInfo_t
-{       
-
-    
-
 }
