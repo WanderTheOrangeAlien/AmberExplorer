@@ -19,8 +19,8 @@ public class Canvas_TutorialSelector : MonoBehaviour
         gameObject.SetActive(true);
         buttonBack.gameObject.SetActive(false);
 
-        Debug.Log("Setting up");
-        Debug.Log("Language:" + Settings.Instance.language.ToString());
+        // Debug.Log("Setting up");
+        // Debug.Log("Language:" + Settings.Instance.language.ToString());
         Debug.Log(panelSets.Length + " " + selectorButtons.Length);
         if (panelSets.Length != selectorButtons.Length) Debug.LogError("Panels and buttons array must be the same size!");
 
