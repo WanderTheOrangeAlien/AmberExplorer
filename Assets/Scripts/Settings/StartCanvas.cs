@@ -15,6 +15,8 @@ public class StartCanvas : MonoBehaviour
     [Space(10)]
     public GameObject panel_LanguageSelection;
     public GameObject panel_StartMenu;
+    public GameObject panel_TimeSelection_ESP;
+    public GameObject panel_TimeSelection_ENG;
     [Space(10)]
     public Sprite[] sprites_ESP;
     public Sprite[] sprites_ENG;
@@ -24,7 +26,7 @@ public class StartCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panel_StartMenu.SetActive(false);
+        ChangePanel(panel_LanguageSelection);
 
         btn_ESP.GetComponent<Button>().onClick.AddListener(() =>
         {
@@ -33,23 +35,28 @@ public class StartCanvas : MonoBehaviour
             Settings.Instance.language = Language.Espanol;
             UpdateSprites();
 
-            panel_LanguageSelection.SetActive(false);
-            panel_StartMenu.SetActive(true);
+            ChangePanel(panel_StartMenu);
         });
 
         btn_ENG.GetComponent<Button>().onClick.AddListener(() =>
         {
             Settings.Instance.language = Language.English;
             UpdateSprites();
-            panel_LanguageSelection.SetActive(false);
-            panel_StartMenu.SetActive(true);
+            ChangePanel(panel_StartMenu);
         });
 
         //StartMentu
 
         btn_Start.GetComponent<Button>().onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("Home_V2.0");
+            if(Settings.Instance.language == Language.English)
+            {
+                ChangePanel(panel_TimeSelection_ENG);
+
+            }else if (Settings.Instance.language == Language.Espanol)
+            {
+                ChangePanel(panel_TimeSelection_ESP);
+            }
         });
 
         btn_Exit.GetComponent<Button>().onClick.AddListener(() =>
@@ -82,5 +89,14 @@ public class StartCanvas : MonoBehaviour
         btn_Start.GetComponent<Image>().sprite = spriteArray[0];
         btn_Credits.GetComponent<Image>().sprite = spriteArray[1];
         btn_Exit.GetComponent<Image>().sprite = spriteArray[2];
+    }
+    void ChangePanel(GameObject panel)
+    {
+        panel_LanguageSelection.SetActive(false);
+        panel_StartMenu.SetActive(false);
+        panel_TimeSelection_ESP.SetActive(false);
+        panel_TimeSelection_ENG.SetActive(false);
+
+        panel.SetActive(true);
     }
 }
