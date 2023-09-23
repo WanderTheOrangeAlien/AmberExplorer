@@ -40,7 +40,7 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
 
 
-    
+
     private bool isAudioFinished = false;
     public Material v;
     public Material vv;
@@ -79,8 +79,8 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
         Invoke("enableAudio", 2f);
 
-        ChangeHighlight(MapPins, DefaultMapPinMaterial);
-        ChangeHighlight(Tools, DefaultToolMaterial);
+        // ChangeHighlight(MapPins, DefaultMapPinMaterial);
+        // ChangeHighlight(Tools, DefaultToolMaterial);
 
         audioSource.Stop();
 
@@ -151,18 +151,18 @@ public class ControladorMediaV1_1 : MonoBehaviour
         //Invoke("IncrementClipIndex", audioClips[currentClipIndex].length);
 
         // Avanzar al siguiente clip para la próxima vez
-        
+
         //Debug.Log(currentClipIndex);
     }
 
     void IncrementClipIndex()
     {
-        currentClipIndex++;        
+        currentClipIndex++;
     }
 
     public void IncrementGrabCount()
     {
-        if(currentClipIndex == 3)
+        if (currentClipIndex == 3)
         {
             grabCount += 1;
         }
@@ -178,13 +178,13 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
     void Update()
     {
-        if(audioWasPlaying != audioSource.isPlaying) //there was a change in audioSource.isPlaying
+        if (audioWasPlaying != audioSource.isPlaying) //there was a change in audioSource.isPlaying
         {
             //Debug.Log($"Was={audioWasPlaying}, is={audioSource.isPlaying}!");
             if (!audioSource.isPlaying) //Falling edge
             {
                 currentClipIndex++;
-            }            
+            }
             audioWasPlaying = audioSource.isPlaying;
         }
 
@@ -220,11 +220,11 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
         }
 
-        
+
         if (Settings.Instance.language == Language.Espanol)
-        {            
+        {
             //Pasar al siguiente audio, no hay que hacer ninguna accion
-            if((currentClipIndex == 0 || currentClipIndex == 1) && !audioSource.isPlaying)
+            if ((currentClipIndex == 0 || currentClipIndex == 1) && !audioSource.isPlaying)
             {
                 PlayCurrentClip(0);
             }
@@ -233,9 +233,9 @@ public class ControladorMediaV1_1 : MonoBehaviour
             if (currentClipIndex == 2 && !audioSource.isPlaying)
             {
                 PlayCurrentClip(1);
-                Invoke("HighlightTools", 9.5f);
-                Invoke("HighlightTrigger", 14f);
-                Invoke("UnhighlightTrigger", 18f);
+                // Invoke("HighlightTools", 9.5f);
+                // Invoke("HighlightTrigger", 14f);
+                // Invoke("UnhighlightTrigger", 18f);
 
             }
 
@@ -247,14 +247,14 @@ public class ControladorMediaV1_1 : MonoBehaviour
                 Invoke("HighlightMapPins", 6f);
 
             }
-            if (currentClipIndex == 4 && mapInteractionCount >=3)
+            if (currentClipIndex == 4 && mapInteractionCount >= 3)
             {
                 PlayCurrentClip(3f);
                 XRControllerLeft.SetActive(false);
 
             }
 
-           
+
         }
 
         else if (Settings.Instance.language == Language.English)
@@ -312,9 +312,9 @@ public class ControladorMediaV1_1 : MonoBehaviour
             if (currentClipIndex == 2 && !audioSource.isPlaying)
             {
                 PlayCurrentClip(1);
-                Invoke("HighlightTools", 9.5f);
-                Invoke("HighlightTrigger", 14f);
-                Invoke("UnhighlightTrigger", 18f);
+                // Invoke("HighlightTools", 9.5f);
+                // Invoke("HighlightTrigger", 14f);
+                // Invoke("UnhighlightTrigger", 18f);
 
             }
 
@@ -362,7 +362,7 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
     public void HighlightMapPins()
     {
-        foreach(var pin in MapPins)
+        foreach (var pin in MapPins)
         {
             MeshRenderer rend = pin.GetComponent<MeshRenderer>();
             rend.SetMaterials(new List<Material>()
@@ -429,8 +429,8 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
     public void delay(float seconds)
     {
-     
-        while(timer < seconds / Time.deltaTime)
+
+        while (timer < seconds / Time.deltaTime)
         {
             timer += Time.deltaTime;
         }

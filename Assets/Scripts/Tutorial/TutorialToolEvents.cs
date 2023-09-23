@@ -28,10 +28,10 @@ public class TutorialToolEvents : MonoBehaviour
                 mediaController.IncrementGrabCount();
             }
 
-            rend.SetMaterials(new List<Material>
-            {
-                rend.materials[0],mediaController.DefaultToolMaterial
-            });
+            // rend.SetMaterials(new List<Material>
+            // {
+            //     rend.materials[0],mediaController.DefaultToolMaterial
+            // });
 
             wasGrabbed = true;
         });

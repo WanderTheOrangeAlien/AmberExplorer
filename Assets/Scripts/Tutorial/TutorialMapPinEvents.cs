@@ -27,10 +27,10 @@ public class TutorialMapPinEvents : MonoBehaviour
                 mediaController.IncrementMapInteractionCount();
             }
 
-            rend.SetMaterials(new List<Material>
-            {
-                rend.materials[0],mediaController.DefaultMapPinMaterial
-            });
+            // rend.SetMaterials(new List<Material>
+            // {
+            //     rend.materials[0],mediaController.DefaultMapPinMaterial
+            // });
 
             wasInteracted = true;
         });
