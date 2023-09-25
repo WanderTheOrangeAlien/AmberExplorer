@@ -234,17 +234,17 @@ public class ControladorMediaV1_1 : MonoBehaviour
             {
                 PlayCurrentClip(1);
                 // Invoke("HighlightTools", 9.5f);
-                // Invoke("HighlightTrigger", 14f);
-                // Invoke("UnhighlightTrigger", 18f);
+                Invoke("HighlightTrigger", 14f);
+                Invoke("UnhighlightTrigger", 18f);
 
             }
 
             //Indicar el trigger cuando indicamos el mapa
 
-            if (currentClipIndex == 3 && grabCount > 2 && !audioSource.isPlaying)
+            if (currentClipIndex == 3 && grabCount >= 1 && !audioSource.isPlaying)
             {
                 PlayCurrentClip(2.5f);
-                Invoke("HighlightMapPins", 6f);
+                // Invoke("HighlightMapPins", 6f);
 
             }
             if (currentClipIndex == 4 && mapInteractionCount >= 3)
@@ -313,17 +313,17 @@ public class ControladorMediaV1_1 : MonoBehaviour
             {
                 PlayCurrentClip(1);
                 // Invoke("HighlightTools", 9.5f);
-                // Invoke("HighlightTrigger", 14f);
-                // Invoke("UnhighlightTrigger", 18f);
+                Invoke("HighlightTrigger", 14f);
+                Invoke("UnhighlightTrigger", 18f);
 
             }
 
             //Indicar el trigger cuando indicamos el mapa
 
-            if (currentClipIndex == 3 && grabCount > 2 && !audioSource.isPlaying)
+            if (currentClipIndex == 3 && grabCount >= 1 && !audioSource.isPlaying)
             {
                 PlayCurrentClip(2.5f);
-                Invoke("HighlightMapPins", 6f);
+                // Invoke("HighlightMapPins", 6f);
 
             }
             if (currentClipIndex == 4 && mapInteractionCount >= 3)
