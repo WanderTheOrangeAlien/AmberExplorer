@@ -31,7 +31,7 @@ public class MeshDestroy : MonoBehaviour
     public int Drop_Rate=0;
 
 
-    public GameObject miiGameObject;
+    public GameObject Ambar;
 
     public GameObject Sounds;
 
@@ -52,7 +52,7 @@ public class MeshDestroy : MonoBehaviour
         StartCoroutine(Example());
 
         // Encuentra el Rigidbody del hijo
-        //rb = miiGameObject.GetComponent<Rigidbody>();
+        //rb = Ambar.GetComponent<Rigidbody>();
 
 
     }
@@ -73,7 +73,7 @@ public class MeshDestroy : MonoBehaviour
     }
     IEnumerator Example()
     {
-        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(1.00f, 2.50f));
+        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(0.50f, 1.50f));
         if (Destroi)
         {
 
@@ -93,11 +93,11 @@ public class MeshDestroy : MonoBehaviour
             Sounds.GetComponents<AudioSource>()[0].Play();
 
             if(UnityEngine.Random.Range(0,100)<Drop_Rate){
-            miiGameObject.GetComponent<Rigidbody>().isKinematic = false;
-            miiGameObject.GetComponent<XRGrabInteractable>().enabled = true;
+            Ambar.GetComponent<Rigidbody>().isKinematic = false;
+            Ambar.GetComponent<XRGrabInteractable>().enabled = true;
             }
             else{
-                miiGameObject.SetActive(false);
+                Ambar.SetActive(false);
             }
 
             DestroyMesh();
