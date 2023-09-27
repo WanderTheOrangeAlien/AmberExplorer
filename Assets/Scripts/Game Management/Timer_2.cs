@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Timer_2 : MonoBehaviour
 {
     public static float time;
     public static float targetTime;

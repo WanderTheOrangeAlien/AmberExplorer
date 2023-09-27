@@ -47,6 +47,7 @@ public class SceneTransition : MonoBehaviour
 
     public void ChangeScene(float duration, string scene)
     {
+        Debug.Log($"{gameObject.name}: Chaging scene, duration = {duration}");
         Fade(0, 1, duration, true);
 
         //SceneManager.LoadScene(targetScene);

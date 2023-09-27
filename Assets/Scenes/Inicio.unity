@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -916,7 +916,7 @@ RectTransform:
   - {fileID: 1872662534}
   - {fileID: 669849262}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1673,7 +1673,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169930885
 GameObject:
@@ -5795,7 +5795,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447827432
 GameObject:
@@ -7608,6 +7608,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1843867311058312453, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843867311058312453, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -7617,7 +7621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1843867311058312453, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1843867311058312453, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7649,7 +7653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2136200144948635572, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
       propertyPath: targetScene
-      value: Home_V2.1
+      value: Example
       objectReference: {fileID: 0}
     - target: {fileID: 2136200144948635572, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
       propertyPath: fadeDuration
@@ -12317,7 +12321,7 @@ RectTransform:
   - {fileID: 380866340}
   - {fileID: 485195447}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13489,7 +13493,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1201648567}
   - component: {fileID: 1201648568}
-  - component: {fileID: 1201648569}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -13552,20 +13555,6 @@ MonoBehaviour:
   v1: {fileID: 2100000, guid: 9c44073519c8f574790b3138959e09b3, type: 2}
   v2: {fileID: 2100000, guid: 3e191aad62dee134d8d6d23517709547, type: 2}
   ControlMaterial: []
---- !u!114 &1201648569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201648565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a971b8e4f756776418e687a3720a8317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DEBUG_time: 0
-  DEBUG_targetTime: 0
 --- !u!1001 &1209845405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18703,6 +18692,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678400142}
   m_CullTransparentMesh: 1
+--- !u!1 &1683624548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683624550}
+  - component: {fileID: 1683624549}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1683624549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683624548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a111d04c6ba4e2746976b53a6be50d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeString: 
+  gameOverCanvas: {fileID: 0}
+  timerText: {fileID: 0}
+  debug_Time: 0
+--- !u!4 &1683624550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683624548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08073397, y: 3.2007253, z: -3.1081722}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1684544161
 GameObject:
   m_ObjectHideFlags: 0
@@ -19141,7 +19178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714131713
 GameObject:
@@ -23785,7 +23822,7 @@ Transform:
   m_Children:
   - {fileID: 174135667}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3701197922453342
 Transform:
@@ -25070,7 +25107,7 @@ Transform:
   - {fileID: 3127728407370093136}
   - {fileID: 7696548425431926046}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &4146705900705481990
 MeshRenderer:

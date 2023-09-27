@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Canvas_TimeSelection : MonoBehaviour
 {
 
-    public static float selectedTime = 0;
+    public static int selectedTime = 0;
 
     public TimeOption[] timeOptions = new TimeOption[3];
     public Button btn_Continue;
@@ -39,9 +39,15 @@ public class Canvas_TimeSelection : MonoBehaviour
         {
             if (isTimeSelected)
             {
-                Timer.targetTime = selectedTime;
-                Timer.StartTimer();
-                FindObjectOfType<SceneTransition>().ChangeScene(2, "Home_V2.1");
+                TimerController.targetTime = selectedTime;
+                Debug.Log($"TimeSelected={TimerController.targetTime}");
+                TimerController.StartTimer();
+
+                //DEBUG
+                FindObjectOfType<SceneTransition>().ChangeScene(2, "Example");
+
+                //INTENDED
+                //FindObjectOfType<SceneTransition>().ChangeScene(2, "Home_V2.1");
             }
             
         });
@@ -82,5 +88,5 @@ public class Canvas_TimeSelection : MonoBehaviour
 public struct TimeOption
 {
     public Button button;
-    public float time;
+    public int time;
 }
