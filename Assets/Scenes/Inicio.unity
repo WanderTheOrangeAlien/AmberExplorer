@@ -7653,7 +7653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2136200144948635572, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
       propertyPath: targetScene
-      value: Example
+      value: CaveScene
       objectReference: {fileID: 0}
     - target: {fileID: 2136200144948635572, guid: 1edf8990996da5e44a2a69900f59fade, type: 3}
       propertyPath: fadeDuration

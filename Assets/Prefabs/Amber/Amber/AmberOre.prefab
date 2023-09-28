@@ -443,9 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useCustomMesh: 0
   useCustomMaterial: 1
-  amberData:
-  - {fileID: 11400000, guid: 29fa44ab1b56b474980796d3b6780293, type: 2}
-  - {fileID: 11400000, guid: 4714d61d16a2a7341af0d961d1f752a5, type: 2}
+  amberData: {fileID: 11400000, guid: f373c0688d6405c42afa5fe716c80b1f, type: 2}
   collectedSound: {fileID: 8300000, guid: e95bfd15493fa684385eb8fdd845e9e2, type: 3}
   disappearSound: {fileID: 8300000, guid: 540eba59010c64944bcd4237dcca2b42, type: 3}
   collectedVoiceOver_ESP: {fileID: 8300000, guid: 325eda81e0683e546af4f3b3450d0329, type: 3}

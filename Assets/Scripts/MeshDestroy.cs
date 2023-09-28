@@ -28,8 +28,12 @@ public class MeshDestroy : MonoBehaviour
 
     public int Hiit = 5;
 
+    public int Drop_Rate=0;
 
-    public GameObject miiGameObject;
+
+    public GameObject Ambar;
+
+    public GameObject Sounds;
 
 
 
@@ -38,11 +42,17 @@ public class MeshDestroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(Drop_Rate<0){
+            Drop_Rate=0;
+        }
+        if(Drop_Rate>100){
+            Drop_Rate=100;
+        }
 
         StartCoroutine(Example());
 
         // Encuentra el Rigidbody del hijo
-        //rb = miiGameObject.GetComponent<Rigidbody>();
+        //rb = Ambar.GetComponent<Rigidbody>();
 
 
     }
@@ -52,15 +62,18 @@ public class MeshDestroy : MonoBehaviour
         if (other.collider.CompareTag("Axe"))
         {
             int golpeFuerza = UnityEngine.Random.Range(1, 3);
-            miiGameObject.GetComponents<AudioSource>()[1].pitch = 0.5f * golpeFuerza;
-            miiGameObject.GetComponents<AudioSource>()[1].Play();
             //Debug.Log(Hiit);
             Hiit = Hiit - golpeFuerza;
+            if(Hiit>0){
+                Sounds.GetComponents<AudioSource>()[1].pitch = 0.5f * golpeFuerza;
+                Sounds.GetComponents<AudioSource>()[1].Play();
+            }
+
         }
     }
     IEnumerator Example()
     {
-        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(2.00f, 4.00f));
+        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(0.50f, 1.50f));
         if (Destroi)
         {
 
@@ -76,12 +89,17 @@ public class MeshDestroy : MonoBehaviour
 
         if (Hiit <= 0)
         {
-            miiGameObject.GetComponents<AudioSource>()[0].Play();
-            miiGameObject.GetComponent<Rigidbody>().isKinematic = false;
-            //rb.isKinematic = false;
-            miiGameObject.GetComponent<XRGrabInteractable>().enabled = true;
-            // miiGameObject.GetComponent<RayAttachModifier>().enabled = true;
-            //audioSource.Play();
+            
+            Sounds.GetComponents<AudioSource>()[0].Play();
+
+            if(UnityEngine.Random.Range(0,100)<Drop_Rate){
+            Ambar.GetComponent<Rigidbody>().isKinematic = false;
+            Ambar.GetComponent<XRGrabInteractable>().enabled = true;
+            }
+            else{
+                Ambar.SetActive(false);
+            }
+
             DestroyMesh();
         }
     }

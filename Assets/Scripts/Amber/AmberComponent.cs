@@ -11,7 +11,7 @@ public class AmberComponent : MonoBehaviour
     //public AmberScriptableObject amberData;
     public bool useCustomMesh = false, useCustomMaterial = false;
 
-    public AmberScriptableObject[] amberData;
+    public AmberScriptableObject amberData;
 
     [Space(15)]
     public AudioClip collectedSound;
@@ -47,7 +47,7 @@ public class AmberComponent : MonoBehaviour
 
         if (useCustomMaterial)
         {
-            amber.GetComponent<MeshRenderer>().material = amberData[1].ambarMaterial;
+            amber.GetComponent<MeshRenderer>().material = amberData.ambarMaterial;
         }
 
         //Call the Grab event
@@ -58,7 +58,7 @@ public class AmberComponent : MonoBehaviour
                 CollectedMethod();
                 isCollected = true;
             }
-
+            
         });
 
         //Language dependent selection
@@ -77,11 +77,6 @@ public class AmberComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // amber.GetComponent<MeshRenderer>().material = amberData.ambarMaterial;
-        amber.GetComponent<MeshRenderer>().material = amberData[DeteccionDeLuz.indexMaterial].ambarMaterial;
-
-
 
     }
 
@@ -102,12 +97,12 @@ public class AmberComponent : MonoBehaviour
     public void SendCollected()
     {
         //Event
-        if (OnAmberCollected == null)
+        if(OnAmberCollected == null)
         {
             Debug.LogError("OnAmberCollected was null!!");
         }
 
-        OnAmberCollected(amberData[0]);
+        OnAmberCollected(amberData);
         audioSource.clip = collectedSound;
         audioSource.Play();
         gameObject.SetActive(false);
