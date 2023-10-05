@@ -836,7 +836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &127923549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,9 +2830,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LineWidth: 0.005
+  m_LineWidth: 0.0119
   m_OverrideInteractorLineLength: 1
-  m_LineLength: 10
+  m_LineLength: 30
   m_AutoAdjustLineLength: 1
   m_MinLineLength: 0.5
   m_UseDistanceToHitAsMaxLineLength: 1
@@ -3144,19 +3144,19 @@ MonoBehaviour:
   m_AudioClipForOnHoverCanceled: {fileID: 0}
   m_AllowHoverAudioWhileSelecting: 0
   m_PlayHapticsOnSelectEntered: 1
-  m_HapticSelectEnterIntensity: 0.5
+  m_HapticSelectEnterIntensity: 0.669
   m_HapticSelectEnterDuration: 0.1
   m_PlayHapticsOnSelectExited: 1
-  m_HapticSelectExitIntensity: 0.5
+  m_HapticSelectExitIntensity: 0.669
   m_HapticSelectExitDuration: 0.1
   m_PlayHapticsOnSelectCanceled: 0
   m_HapticSelectCancelIntensity: 0
   m_HapticSelectCancelDuration: 0
   m_PlayHapticsOnHoverEntered: 1
-  m_HapticHoverEnterIntensity: 0.25
+  m_HapticHoverEnterIntensity: 0.449
   m_HapticHoverEnterDuration: 0.1
   m_PlayHapticsOnHoverExited: 1
-  m_HapticHoverExitIntensity: 0.25
+  m_HapticHoverExitIntensity: 0.46
   m_HapticHoverExitDuration: 0.1
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
@@ -5933,9 +5933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LineWidth: 0.005
+  m_LineWidth: 0.0119
   m_OverrideInteractorLineLength: 1
-  m_LineLength: 10
+  m_LineLength: 30
   m_AutoAdjustLineLength: 1
   m_MinLineLength: 0.5
   m_UseDistanceToHitAsMaxLineLength: 1
@@ -6247,19 +6247,19 @@ MonoBehaviour:
   m_AudioClipForOnHoverCanceled: {fileID: 0}
   m_AllowHoverAudioWhileSelecting: 0
   m_PlayHapticsOnSelectEntered: 1
-  m_HapticSelectEnterIntensity: 0.5
+  m_HapticSelectEnterIntensity: 0.669
   m_HapticSelectEnterDuration: 0.1
   m_PlayHapticsOnSelectExited: 1
-  m_HapticSelectExitIntensity: 0.5
+  m_HapticSelectExitIntensity: 0.669
   m_HapticSelectExitDuration: 0.1
   m_PlayHapticsOnSelectCanceled: 0
   m_HapticSelectCancelIntensity: 0
   m_HapticSelectCancelDuration: 0
   m_PlayHapticsOnHoverEntered: 1
-  m_HapticHoverEnterIntensity: 0.25
+  m_HapticHoverEnterIntensity: 0.449
   m_HapticHoverEnterDuration: 0.1
   m_PlayHapticsOnHoverExited: 1
-  m_HapticHoverExitIntensity: 0.25
+  m_HapticHoverExitIntensity: 0.449
   m_HapticHoverExitDuration: 0.1
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
@@ -17173,7 +17173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Artu ro Ortiz
+  m_text: Arturo Ortiz
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
