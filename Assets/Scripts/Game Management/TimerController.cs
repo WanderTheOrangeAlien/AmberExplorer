@@ -7,13 +7,13 @@ using System;
 
 public class TimerController : MonoBehaviour
 {
-	[SerializeField] 
+	[SerializeField]
 	public static int min, seg; // Minutos y segundos iniciales configurables desde el Inspector
-	
-	[SerializeField] 
+
+	[SerializeField]
 	string timeString; // Referencia al componente de texto para mostrar el tiempo
-	
-	[SerializeField] 
+
+	[SerializeField]
 	Canvas gameOverCanvas; // Arrastra el Canvas de Game Over desde el Inspector
 
 	public TMP_Text timerText;
@@ -38,19 +38,13 @@ public class TimerController : MonoBehaviour
 		}
 	}
 
-    private void Start()
-    {
+	private void Start()
+	{
 		Time.timeScale = 1;
 
-		if(debug_Time == "DEBUG_30S")
-        {
-			targetTime = 10;
-			StartTimer();
+	}
 
-        }
-    }
-
-    void FixedUpdate()
+	void FixedUpdate()
 	{
 		if (enMarcha)
 		{
@@ -72,21 +66,21 @@ public class TimerController : MonoBehaviour
 		}
 
 		// Resto del código para mostrar el tiempo
-		
+
 		int tempmin = Mathf.FloorToInt(remaningTime / 60);
 		int tempSeg = Mathf.FloorToInt(remaningTime % 60);
 		timeString = string.Format("{00:00}:{01:00}", tempmin, tempSeg);
 		debug_Time = remaningTime.ToString();
 
-		if(timerText != null)
-        {
+		if (timerText != null)
+		{
 			timerText.text = timeString;
 		}
-		
+
 	}
 
 	public static void StartTimer()
-    {
+	{
 
 		// Inicializa el contador de tiempo como en marcha
 		enMarcha = true;

@@ -35,6 +35,7 @@ public class SceneTransition : MonoBehaviour
         if (GameManager.Instance.isGameOver)
         {
             Invoke("ReturnToStartScene", 8);
+            GameManager.Instance.isGameOver = false;
         }
     }
 
@@ -68,7 +69,7 @@ public class SceneTransition : MonoBehaviour
 
     public void Fade(float alphaIn, float alphaOut, float duration, bool changeScene)
     {
-        StartCoroutine(FadeRoutine(alphaIn, alphaOut, duration,changeScene));   
+        StartCoroutine(FadeRoutine(alphaIn, alphaOut, duration, changeScene));
     }
 
     public IEnumerator FadeRoutine(float alphaIn, float alphaOut, float duration, bool changeScene)
@@ -85,7 +86,7 @@ public class SceneTransition : MonoBehaviour
             yield return null;
         }
 
-        
+
         newColor.a = alphaOut;
         solidColor.material.SetColor("_Color", newColor);
 
@@ -93,7 +94,7 @@ public class SceneTransition : MonoBehaviour
         {
             SceneManager.LoadScene(targetScene);
         }
-            
+
     }
 
     private float SmoothFunction(float t)
