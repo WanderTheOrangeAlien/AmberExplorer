@@ -24,17 +24,17 @@ public class transicion : MonoBehaviour
             Debug.Log("Listo para entrar");
             if (Settings.Instance.language == Language.Espanol)
             {
-
+                TimerController.StartTimer();
 
                 // SceneManager.LoadScene("Example");
                 x.ChangeScene(3, "Example");
             }
             if (Settings.Instance.language == Language.English)
             {
-
+                TimerController.StartTimer();
 
                 // SceneManager.LoadScene("Example");
-                x.ChangeScene(3, "CaveScene");
+                x.ChangeScene(3, "Example");
             }
 
 

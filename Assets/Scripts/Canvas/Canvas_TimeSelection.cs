@@ -23,7 +23,7 @@ public class Canvas_TimeSelection : MonoBehaviour
         defaultColorBlock = timeOptions[0].button.colors;
         selectedColorBlock = timeOptions[0].button.colors;
 
-        selectedColorBlock.normalColor = new Color(1,1,1,0.58f);
+        selectedColorBlock.normalColor = new Color(1, 1, 1, 0.58f);
         selectedColorBlock.selectedColor = new Color(1, 1, 1, 0.58f);
 
         for (int i = 0; i < timeOptions.Length; i++)
@@ -41,7 +41,7 @@ public class Canvas_TimeSelection : MonoBehaviour
             {
                 TimerController.targetTime = selectedTime;
                 Debug.Log($"TimeSelected={TimerController.targetTime}");
-                TimerController.StartTimer();
+
 
                 //DEBUG
                 FindObjectOfType<SceneTransition>().ChangeScene(2, "Example");
@@ -49,14 +49,14 @@ public class Canvas_TimeSelection : MonoBehaviour
                 //INTENDED
                 //FindObjectOfType<SceneTransition>().ChangeScene(2, "Home_V2.1");
             }
-            
+
         });
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void SelectOption(int index)
@@ -65,9 +65,9 @@ public class Canvas_TimeSelection : MonoBehaviour
         for (int i = 0; i < timeOptions.Length; i++)
         {
             Debug.Log($"Target Index is {index}. Current={i}");
-            if(i == index)
+            if (i == index)
             {
-                
+
                 timeOptions[i].button.colors = selectedColorBlock;
 
                 Debug.Log(timeOptions[i].button.name + " (Target): Changed ColorBlock. normal = " + timeOptions[i].button.colors.normalColor);
@@ -75,11 +75,11 @@ public class Canvas_TimeSelection : MonoBehaviour
                 selectedTime = timeOptions[i].time;
             }
             else
-            {               
+            {
                 timeOptions[i].button.colors = defaultColorBlock;
                 Debug.Log(timeOptions[i].button.name + ": Changed ColorBlock. normal = " + timeOptions[i].button.colors.normalColor);
             }
-            
+
         }
     }
 }
