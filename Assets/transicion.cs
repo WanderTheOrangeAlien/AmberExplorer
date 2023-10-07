@@ -29,6 +29,13 @@ public class transicion : MonoBehaviour
                 // SceneManager.LoadScene("Example");
                 x.ChangeScene(3, "Example");
             }
+            if (Settings.Instance.language == Language.English)
+            {
+
+
+                // SceneManager.LoadScene("Example");
+                x.ChangeScene(3, "CaveScene");
+            }
 
 
         }
