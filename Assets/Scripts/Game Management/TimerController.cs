@@ -18,7 +18,7 @@ public class TimerController : MonoBehaviour
 
 	public TMP_Text timerText;
 
-	public float debug_Time;
+	public string debug_Time;
 
 	public static long startTimeStamp;
 	public static long endTimeStamp;
@@ -41,6 +41,13 @@ public class TimerController : MonoBehaviour
     private void Start()
     {
 		Time.timeScale = 1;
+
+		if(debug_Time == "DEBUG_30S")
+        {
+			targetTime = 10;
+			StartTimer();
+
+        }
     }
 
     void FixedUpdate()
@@ -56,11 +63,7 @@ public class TimerController : MonoBehaviour
 				enMarcha = false;
 				remaningTime = 0;
 
-				// Activa el Canvas de Game Over
-				if (gameOverCanvas != null)
-				{
-					gameOverCanvas.gameObject.SetActive(true);
-				}
+				GameManager.Instance.GameOver(GameOverCause.TimeOver);
 
 				// Pausa el juego
 				//Time.timeScale = 0f;
@@ -73,7 +76,7 @@ public class TimerController : MonoBehaviour
 		int tempmin = Mathf.FloorToInt(remaningTime / 60);
 		int tempSeg = Mathf.FloorToInt(remaningTime % 60);
 		timeString = string.Format("{00:00}:{01:00}", tempmin, tempSeg);
-		debug_Time = remaningTime;
+		debug_Time = remaningTime.ToString();
 
 		if(timerText != null)
         {
@@ -110,4 +113,5 @@ public class TimerController : MonoBehaviour
 
 		return diff;
 	}
+
 }

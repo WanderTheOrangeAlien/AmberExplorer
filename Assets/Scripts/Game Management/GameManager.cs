@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public List<Item> GameItems;
-    public bool isGameOver = false;
-
-    public delegate void GameOver();
-    public event GameOver OnGameOver;
+    public bool isGameOver;
 
     public static GameManager Instance;
-    
-
 
     private void Awake()
     {
@@ -27,15 +23,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
-    public void InvokeGameOver()
-    {
-        isGameOver = true;
-        OnGameOver();
-        
-    }
-
     private void Start()
     {
 
@@ -53,4 +42,36 @@ public class GameManager : MonoBehaviour
         }
         
     }
+
+    public void GameOver(GameOverCause cause)
+    {
+        switch (cause)
+        {
+            case GameOverCause.TimeOver:
+                FindObjectOfType<SceneTransition>().ChangeScene(2, "GameOverScene");
+                break;
+        }
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"{scene.name}");
+
+        if(scene.name == "GameOverScene")
+        {
+            isGameOver = true;
+        }
+    }
+}
+
+public enum GameOverCause
+{
+    TimeOver,
+    AmberCollected
+}
+[System.Serializable]
+public struct GameOverStruct
+{
+    public GameObject timeOverCanvas;
+    public GameObject amberCollectedCanvas;
 }

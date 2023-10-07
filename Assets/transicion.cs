@@ -27,14 +27,14 @@ public class transicion : MonoBehaviour
                 TimerController.StartTimer();
 
                 // SceneManager.LoadScene("Example");
-                x.ChangeScene(3, "Example");
+                x.ChangeScene(3, "CaveScene");
             }
             if (Settings.Instance.language == Language.English)
             {
                 TimerController.StartTimer();
 
                 // SceneManager.LoadScene("Example");
-                x.ChangeScene(3, "Example");
+                x.ChangeScene(3, "CaveScene");
             }
 
 

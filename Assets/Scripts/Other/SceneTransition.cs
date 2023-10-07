@@ -21,23 +21,35 @@ public class SceneTransition : MonoBehaviour
     void Start()
     {
 
-        //Get the SolidColor Object
         solidColor = GetComponent<Renderer>();
+
+        //Get the SolidColor Object
+        //solidColor = GetComponent<Renderer>();
+        SceneTransition.OnSceneTransition += ChangeScene;
 
         if (solidColor == null) Debug.LogError("Culd not find the required GameObject called \"SolidColor\". Did you change the name? >:[");
         fadeColor.a = 1;
 
         Fade(1, 0, fadeDuration, false);
 
-        //fadeColor.a = 0;
-        SceneTransition.OnSceneTransition += ChangeScene;
-
-        
+        if (GameManager.Instance.isGameOver)
+        {
+            Invoke("ReturnToStartScene", 8);
+        }
     }
+
+    void ReturnToStartScene()
+    {
+        ChangeScene(3, "Inicio");
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+        //
+
+
         //DEGUG: TO TEST IN NON VR
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -48,6 +60,7 @@ public class SceneTransition : MonoBehaviour
     public void ChangeScene(float duration, string scene)
     {
         Debug.Log($"{gameObject.name}: Chaging scene, duration = {duration}");
+        targetScene = scene;
         Fade(0, 1, duration, true);
 
         //SceneManager.LoadScene(targetScene);
@@ -86,5 +99,13 @@ public class SceneTransition : MonoBehaviour
     private float SmoothFunction(float t)
     {
         return Mathf.Sin(2 * (t - 0.2f)) + 0.1f;
+    }
+
+    public void OnSceneLoadedFade()
+    {
+        if (solidColor == null) Debug.LogError("Culd not find the required GameObject called \"SolidColor\". Did you change the name? >:[");
+        fadeColor.a = 1;
+
+        Fade(1, 0, fadeDuration, false);
     }
 }

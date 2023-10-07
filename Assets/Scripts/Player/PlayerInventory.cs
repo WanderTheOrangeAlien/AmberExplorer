@@ -55,7 +55,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (amberAmount >= 5 && !GameManager.Instance.isGameOver)
         {
-            GameManager.Instance.InvokeGameOver();
+            GameManager.Instance.GameOver(GameOverCause.AmberCollected);
         }
     }
 

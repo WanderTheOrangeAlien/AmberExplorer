@@ -32,14 +32,6 @@ public class VoiceOverPlayer : MonoBehaviour
                 break;
         }
 
-
-        GameManager.Instance.OnGameOver += () =>
-        {
-            audioSource.clip = GameOverVoiceOver;
-            audioSource.Play();
-            Debug.Log("GAME OVER");
-        };
-
         audioSource.clip = CaveEnterVoiceOver;
         audioSource.Play();
     }

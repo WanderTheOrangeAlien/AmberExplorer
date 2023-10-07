@@ -63,6 +63,8 @@ public class StartCanvas : MonoBehaviour
         {
             Application.Quit();
         });
+
+        panel_LanguageSelection.SetActive(true);
     }
 
     // Update is called once per frame
