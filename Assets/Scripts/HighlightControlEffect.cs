@@ -12,7 +12,20 @@ public class HighlightControlEffect : MonoBehaviour
         p.GetComponent<Renderer>().material.SetColor("_MainColor", baseColor);
 
     }
+    void OnTriggerEnter(Collider other)
+    {
 
+        if (other.name == "Sphere")
+        {
+            Debug.Log("Trigger");
+            Debug.Log(other);
+            Settings.Instance.checkBaseCasco = true;
+            Settings.Instance.checkKeyCasco = true;
+
+        }
+
+
+    }
 
     // void OnTriggerEnter(Collider other)
     // {

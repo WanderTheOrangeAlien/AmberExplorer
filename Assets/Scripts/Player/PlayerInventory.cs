@@ -10,6 +10,8 @@ public class PlayerInventory : MonoBehaviour
 
     public Dictionary<string, int> ItemList;
 
+    public int amberAmount;
+
     [TextArea]
     public string monitor;
 
@@ -30,28 +32,37 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        monitor = "";
-
-        foreach (var item in ItemList)
-        {
-            monitor += $"{item.Key}: {item.Value} +\n";
-        }
-    }
-
     private void Start()
     {
         AmberComponent.OnAmberCollected += (AmberScriptableObject amberData) =>
-        {         
+        {
             Instance.AddItem(amberData.itemID, 1);
         };
     }
 
 
+    private void Update()
+    {
+        monitor = "";
+        amberAmount = 0;
+
+        //Sum up all the ambers and check if the amount is equal or greater thatn 5
+        foreach (var item in ItemList)
+        {
+            monitor += $"{item.Key}: {item.Value} +\n";
+            amberAmount += item.Value;
+        }
+
+        if (amberAmount >= 5 && !GameManager.Instance.isGameOver)
+        {
+            GameManager.Instance.GameOver(GameOverCause.AmberCollected);
+        }
+    }
+
+
     public void AddItem(string id, int amount)
     {
-        if(!GameManager.Instance.ItemExists(id)) //Invalid ID
+        if (!GameManager.Instance.ItemExists(id)) //Invalid ID
         {
             Debug.LogError($"{id} is an invalid item ID");
             return;
@@ -67,12 +78,12 @@ public class PlayerInventory : MonoBehaviour
             ItemList[id] += amount;
             Debug.Log($"Added Item id:{id}, amount:{amount}. Current amount: {ItemList[id]}");
         }
-        
+
     }
 
     public Item GetItemInfo(string id)
     {
-        if(ItemList.ContainsKey(id))
+        if (ItemList.ContainsKey(id))
         {
             return GameManager.Instance.GameItems.Find(x => x.id == id);
         }
