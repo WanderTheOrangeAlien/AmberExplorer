@@ -21,7 +21,8 @@ public class StartCanvas : MonoBehaviour
     public Sprite[] sprites_ESP;
     public Sprite[] sprites_ENG;
 
-
+    public GameObject panel_Credits_ESP;
+    public GameObject panel_Credits_ENG;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,19 @@ public class StartCanvas : MonoBehaviour
             }else if (Settings.Instance.language == Language.Espanol)
             {
                 ChangePanel(panel_TimeSelection_ESP);
+            }
+        });
+
+        btn_Credits.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            if (Settings.Instance.language == Language.English)
+            {
+                ChangePanel(panel_Credits_ENG);
+
+            }
+            else if (Settings.Instance.language == Language.Espanol)
+            {
+                ChangePanel(panel_Credits_ESP);
             }
         });
 

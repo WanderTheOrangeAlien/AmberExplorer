@@ -41,7 +41,7 @@ public class SceneTransition : MonoBehaviour
 
     void ReturnToStartScene()
     {
-        ChangeScene(3, "Inicio");
+        ChangeScene(3, "Inicio V3");
     }
 
 

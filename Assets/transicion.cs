@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class transicion : MonoBehaviour
 {
@@ -19,24 +21,15 @@ public class transicion : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "XR Origin (2)")
+        if (other.name == "XR Origin" && GameManager.Instance.isHarnessOn)
         {
             Debug.Log("Listo para entrar");
-            if (Settings.Instance.language == Language.Espanol)
-            {
-                TimerController.StartTimer();
+            TimerController.StartTimer();
 
-                // SceneManager.LoadScene("Example");
-                x.ChangeScene(3, "CaveScene");
-            }
-            if (Settings.Instance.language == Language.English)
-            {
-                TimerController.StartTimer();
+            // SceneManager.LoadScene("Example");
+            x.ChangeScene(3, "CaveScene");
 
-                // SceneManager.LoadScene("Example");
-                x.ChangeScene(3, "CaveScene");
-            }
-
+            other.gameObject.GetComponent<DynamicMoveProvider>().enabled = false;
 
         }
 

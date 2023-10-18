@@ -20,7 +20,7 @@ public class AmberComponent : MonoBehaviour
     public AudioClip collectedVoiceOver_ENG;
 
     [Space(20)]
-    public GameObject amber;
+    public GameObject targetModel;
     public bool isCollected = false;
 
     private AudioClip voiceOver;
@@ -47,7 +47,7 @@ public class AmberComponent : MonoBehaviour
 
         if (useCustomMaterial)
         {
-            amber.GetComponent<MeshRenderer>().material = amberData.ambarMaterial;
+            targetModel.GetComponent<MeshRenderer>().material = amberData.ambarMaterial;
         }
 
         //Call the Grab event

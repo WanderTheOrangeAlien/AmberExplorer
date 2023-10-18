@@ -8,7 +8,7 @@ public class TutorialMapPinEvents : MonoBehaviour
     private XRSimpleInteractable interactable;
     private MeshRenderer rend;
     public ControladorMediaV1_1 mediaController;
-    private bool wasInteracted = false;
+    public bool wasInteracted = false;
 
     [TextArea]
     public string debug;
@@ -20,10 +20,11 @@ public class TutorialMapPinEvents : MonoBehaviour
         mediaController = FindObjectOfType<ControladorMediaV1_1>();
         rend = GetComponent<MeshRenderer>();
 
-        interactable.selectEntered.AddListener((args) =>
+        interactable.activated.AddListener((ActivateEventArgs args) =>
         {
             if (!wasInteracted)
             {
+                Debug.Log($"{gameObject.name} Incremented MapInteractionCount");
                 mediaController.IncrementMapInteractionCount();
             }
 

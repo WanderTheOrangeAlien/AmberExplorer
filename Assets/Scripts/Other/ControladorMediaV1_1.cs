@@ -94,6 +94,8 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
         XRControllerLeft.SetActive(false);
 
+        Debug.Log($"{gameObject.name} Has a MediaController");
+
     }
     void enableAudio()
     {
@@ -178,6 +180,8 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
     void Update()
     {
+        if (audioSource == null) return;
+
         if (audioWasPlaying != audioSource.isPlaying) //there was a change in audioSource.isPlaying
         {
             //Debug.Log($"Was={audioWasPlaying}, is={audioSource.isPlaying}!");
@@ -352,12 +356,12 @@ public class ControladorMediaV1_1 : MonoBehaviour
         //Color newColor = new Color(47f / 255f, 140f / 255f, 231f / 255f, 0);
         //TriggerButtonXrController.SetColor("_BaseColor", newColor);
 
-        XRControllerLeft.SetActive(true);
+        //XRControllerLeft.SetActive(true);
     }
 
     public void UnhighlightTrigger()
     {
-        XRControllerLeft.SetActive(false);
+        //XRControllerLeft.SetActive(false);
     }
 
     public void HighlightMapPins()

@@ -10,6 +10,7 @@ TagManager:
   - Axe
   - Right Hand
   - Left Hand
+  - Pickaxe
   layers:
   - Default
   - TransparentFX
@@ -21,10 +22,10 @@ TagManager:
   - Herramientas
   - Arnet
   - Soporte Polea
-  - 
-  - 
-  - 
-  - 
+  - Right Hand
+  - Left Hand
+  - Player Pickaxe
+  - Player
   - 
   - 
   - 

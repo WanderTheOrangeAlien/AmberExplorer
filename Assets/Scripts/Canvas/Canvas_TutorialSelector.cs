@@ -16,6 +16,7 @@ public class Canvas_TutorialSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log($"{gameObject.name}: Initializing...");
         gameObject.SetActive(true);
         buttonBack.gameObject.SetActive(false);
 
@@ -67,8 +68,10 @@ public class Canvas_TutorialSelector : MonoBehaviour
                 };
 
 
-                selectorButtons[i].GetComponent<XRSimpleInteractable>().activated.AddListener((SelectEnterEventArgs) =>
+                selectorButtons[i].GetComponent<XRSimpleInteractable>().activated.AddListener((ActivateEventArgs args) =>
                 {
+                    Debug.Log($"Changing to panel {panelIndex_}");
+                    FindObjectOfType<ControladorMediaV1_1>().IncrementMapInteractionCount();
                     ChangePanelSet(panelIndex_);
                 });
 
