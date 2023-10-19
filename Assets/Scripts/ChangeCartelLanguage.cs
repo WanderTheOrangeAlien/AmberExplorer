@@ -10,9 +10,9 @@ public class ChangeCartelLanguage : MonoBehaviour
     void Start(){
         var settings = GameObject.FindObjectOfType<Settings>();
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        if(settings.language == Language.Espanol){
+        if(GlobalSettings.Instance.language == Language.Espanol){
             spriteRenderer.sprite = espanol;
-        }else if(settings.language == Language.English){
+        }else if(GlobalSettings.Instance.language == Language.English){
             spriteRenderer.sprite = english;
         }
     }

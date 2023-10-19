@@ -89,8 +89,11 @@ public class MeshDestroy : MonoBehaviour
 
         if (Hiit <= 0)
         {
+            if(Sounds != null)
+            {
+                Sounds.GetComponents<AudioSource>()[0].Play();
+            }
             
-            Sounds.GetComponents<AudioSource>()[0].Play();
 
             if(UnityEngine.Random.Range(0,100)<Drop_Rate){
             Ambar.GetComponent<Rigidbody>().isKinematic = false;

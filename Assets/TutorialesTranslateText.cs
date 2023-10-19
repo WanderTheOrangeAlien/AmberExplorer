@@ -9,7 +9,7 @@ public class TutorialesTranslateText : MonoBehaviour
     void Start()
     {
         TextMeshProUGUI textComponent = gameObject.GetComponent<TextMeshProUGUI>();
-        if (Settings.Instance.language == Language.Espanol)
+        if (GlobalSettings.Instance.language == Language.Espanol)
         {
             if (textComponent != null && textComponent.name == "Head Title")
             {

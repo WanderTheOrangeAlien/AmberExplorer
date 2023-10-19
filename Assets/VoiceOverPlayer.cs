@@ -19,7 +19,7 @@ public class VoiceOverPlayer : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        switch (Settings.Instance.language)
+        switch (GlobalSettings.Instance.language)
         {
             case Language.English:
                 GameOverVoiceOver = GameOverVoiceOver_ENG;

@@ -15,6 +15,8 @@ public class PlayerInventory : MonoBehaviour
     [TextArea]
     public string monitor;
 
+    private static bool isEventListenerInitialized; //To prevent from subscribing more than one listener to the event
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -34,10 +36,15 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
-        AmberComponent.OnAmberCollected += (AmberScriptableObject amberData) =>
+        if(!isEventListenerInitialized)
         {
-            Instance.AddItem(amberData.itemID, 1);
-        };
+            isEventListenerInitialized = true;
+            AmberComponent.OnAmberCollected += (AmberScriptableObject amberData) =>
+            {
+                Instance.AddItem(amberData.itemID, 1);
+            };
+        }
+        
     }
 
 
@@ -55,7 +62,9 @@ public class PlayerInventory : MonoBehaviour
 
         if (amberAmount >= 5 && !GameManager.Instance.isGameOver)
         {
+            TimerController.StopTimer();
             GameManager.Instance.GameOver(GameOverCause.AmberCollected);
+            
         }
     }
 

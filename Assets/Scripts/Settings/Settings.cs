@@ -7,6 +7,7 @@ using System;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Settings : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class Settings : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         v1.SetFloat("_MeshTransparent", -0.8517735f);
         v2.SetFloat("_MeshTransparent", -0.8517735f);
@@ -72,10 +73,14 @@ public class Settings : MonoBehaviour
             buttonTutorialContinuar.onClick.AddListener(OnButtonClick);
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //language = GlobalSettings.language;
+    }
+
     void Start()
     {
-
-
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
 

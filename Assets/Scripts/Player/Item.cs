@@ -18,7 +18,7 @@ public class Item : ScriptableObject
 
     public string getName()
     {
-        switch (Settings.Instance.language)
+        switch (GlobalSettings.Instance.language)
         {
             case Language.English: 
                 return names.English;

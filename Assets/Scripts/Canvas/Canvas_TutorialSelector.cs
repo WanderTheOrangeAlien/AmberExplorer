@@ -95,16 +95,16 @@ public class Canvas_TutorialSelector : MonoBehaviour
     {
         DisableAllPanelSets();
 
-        Debug.Log($"{gameObject.name}: Changing to panelSet {panelID}. Lang={Settings.Instance.language}");
+        Debug.Log($"{gameObject.name}: Changing to panelSet {panelID}. Lang={GlobalSettings.Instance.language}");
 
 
 
-        if (Settings.Instance.language == Language.English)
+        if (GlobalSettings.Instance.language == Language.English)
         {
             panelSets[panelID].EnglishPanelSet.SetActive(true);
 
         }
-        else if (Settings.Instance.language == Language.Espanol)
+        else if (GlobalSettings.Instance.language == Language.Espanol)
         {
             panelSets[panelID].SpanishPanelSet.SetActive(true);
         }
@@ -132,12 +132,12 @@ public class Canvas_TutorialSelector : MonoBehaviour
     {
         for (int i = 0; i < panelSets.Length; i++)
         {
-            if (Settings.Instance.language == Language.English)
+            if (GlobalSettings.Instance.language == Language.English)
             {
                 panelSets[i].EnglishPanelSet.SetActive(false);
 
             }
-            else if (Settings.Instance.language == Language.Espanol)
+            else if (GlobalSettings.Instance.language == Language.Espanol)
             {
                 panelSets[i].SpanishPanelSet.SetActive(false);
             }

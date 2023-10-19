@@ -16,7 +16,7 @@ public class GameOverCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        panelESP.SetActive(Settings.Instance.language == Language.Espanol);
-        panelENG.SetActive(Settings.Instance.language == Language.English);
+        panelESP.SetActive(GlobalSettings.Instance.language == Language.Espanol);
+        panelENG.SetActive(GlobalSettings.Instance.language == Language.English);
     }
 }

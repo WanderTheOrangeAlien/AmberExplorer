@@ -34,6 +34,7 @@ public class StartCanvas : MonoBehaviour
 
             Debug.Log(Settings.Instance);
             Settings.Instance.language = Language.Espanol;
+            GlobalSettings.Instance.language = Language.Espanol;
             UpdateSprites();
 
             ChangePanel(panel_StartMenu);
@@ -42,6 +43,7 @@ public class StartCanvas : MonoBehaviour
         btn_ENG.GetComponent<Button>().onClick.AddListener(() =>
         {
             Settings.Instance.language = Language.English;
+            GlobalSettings.Instance.language = Language.English;
             UpdateSprites();
             ChangePanel(panel_StartMenu);
         });
@@ -50,11 +52,11 @@ public class StartCanvas : MonoBehaviour
 
         btn_Start.GetComponent<Button>().onClick.AddListener(() =>
         {
-            if(Settings.Instance.language == Language.English)
+            if(GlobalSettings.Instance.language == Language.English)
             {
                 ChangePanel(panel_TimeSelection_ENG);
 
-            }else if (Settings.Instance.language == Language.Espanol)
+            }else if (GlobalSettings.Instance.language == Language.Espanol)
             {
                 ChangePanel(panel_TimeSelection_ESP);
             }
@@ -62,12 +64,12 @@ public class StartCanvas : MonoBehaviour
 
         btn_Credits.GetComponent<Button>().onClick.AddListener(() =>
         {
-            if (Settings.Instance.language == Language.English)
+            if (GlobalSettings.Instance.language == Language.English)
             {
                 ChangePanel(panel_Credits_ENG);
 
             }
-            else if (Settings.Instance.language == Language.Espanol)
+            else if (GlobalSettings.Instance.language == Language.Espanol)
             {
                 ChangePanel(panel_Credits_ESP);
             }
@@ -91,7 +93,7 @@ public class StartCanvas : MonoBehaviour
     {
         Sprite[] spriteArray = new Sprite[sprites_ESP.Length];
 
-        switch (Settings.Instance.language)
+        switch (GlobalSettings.Instance.language)
         {
             case Language.English:
                 spriteArray = sprites_ENG;

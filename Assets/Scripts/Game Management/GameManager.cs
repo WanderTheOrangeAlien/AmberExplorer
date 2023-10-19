@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public bool isHarnessOn = false;
     public bool isXRGrabOverriden;
+    public Language language;
 
     private void Awake()
     {
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver(GameOverCause cause)
     {
+
         switch (cause)
         {
             case GameOverCause.TimeOver:
@@ -74,12 +76,15 @@ public class GameManager : MonoBehaviour
         if(scene.name == "GameOverScene" || scene.name== "GameOverSceneWin")
         {
             isGameOver = true;
+            PlayerInventory.Instance.ItemList = new Dictionary<string, int>();
         }
 
         if (isGravityOverriden)
         {
             Physics.gravity = new Vector3(0, -9.81f * gravityMultiplier, 0);
         }
+
+        Settings.Instance.language = language;
     }
 }
 

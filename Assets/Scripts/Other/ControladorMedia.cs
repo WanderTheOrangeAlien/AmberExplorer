@@ -59,7 +59,7 @@ public class ControladorMedia : MonoBehaviour
     void PlayNextClip()
     {
         // Si hemos llegado al final de la lista de clips, detenerse
-        if (Settings.Instance.language == Language.English)
+        if (GlobalSettings.Instance.language == Language.English)
         {
             if (currentClipIndex >= audioClips.Length)
             {
@@ -67,7 +67,7 @@ public class ControladorMedia : MonoBehaviour
                 return;
             }
         }
-        else if (Settings.Instance.language == Language.Espanol)
+        else if (GlobalSettings.Instance.language == Language.Espanol)
         {
             if (currentClipIndex >= audioClipsENG.Length)
             {
@@ -85,12 +85,12 @@ public class ControladorMedia : MonoBehaviour
             }
         }
         // Establecer el siguiente clip para el AudioSource y reproducirlo
-        if (Settings.Instance.language == Language.English)
+        if (GlobalSettings.Instance.language == Language.English)
         {
             audioSource.clip = audioClipsENG[currentClipIndex];
             audioSource.Play();
         }
-        else if (Settings.Instance.language == Language.Espanol)
+        else if (GlobalSettings.Instance.language == Language.Espanol)
         {
             audioSource.clip = audioClips[currentClipIndex];
             audioSource.Play();
@@ -187,7 +187,7 @@ public class ControladorMedia : MonoBehaviour
         //     Debug.Log("el audio termino");
         //     // QuadVideo.SetActive(true);
         // }
-        if (Settings.Instance.language == Language.Espanol)
+        if (GlobalSettings.Instance.language == Language.Espanol)
         {
             //Indicar el trigger cuando indicamos el mapa
 
@@ -446,7 +446,7 @@ public class ControladorMedia : MonoBehaviour
             // }
         }
 
-        else if (Settings.Instance.language == Language.English)
+        else if (GlobalSettings.Instance.language == Language.English)
         {
 
             if (currentClipIndex == 2 && audioSource.time <= 8)

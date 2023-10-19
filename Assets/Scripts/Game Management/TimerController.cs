@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
@@ -38,10 +39,19 @@ public class TimerController : MonoBehaviour
 		}
 	}
 
+	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+		if(scene.buildIndex == 0 || scene.buildIndex == 3 || scene.buildIndex == 4)  //"InicioV3"
+		{
+			StopTimer();
+			Debug.Log($"Timer stopped enMarcha={enMarcha}");
+        }
+    }
+
 	private void Start()
 	{
 		Time.timeScale = 1;
-
+        SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
 	void FixedUpdate()
@@ -90,6 +100,11 @@ public class TimerController : MonoBehaviour
 		Debug.Log($"Target={targetTime.ToString()} Length={targetTime}");
 
 	}
+
+	public static void StopTimer()
+    {
+		enMarcha = false;
+    }
 
 	public int getSecondsLeft(DateTime target)
 	{

@@ -62,12 +62,12 @@ public class AmberComponent : MonoBehaviour
         });
 
         //Language dependent selection
-        if (Settings.Instance.language == Language.English)
+        if (GlobalSettings.Instance.language == Language.English)
         {
             collectedVoiceOver = collectedVoiceOver_ENG;
 
         }
-        else if (Settings.Instance.language == Language.Espanol)
+        else if (GlobalSettings.Instance.language == Language.Espanol)
         {
             collectedVoiceOver = collectedVoiceOver_ESP;
         }

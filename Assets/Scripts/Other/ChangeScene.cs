@@ -25,7 +25,7 @@ public class ChangeScene : MonoBehaviour
         if (other.name == "XR Origin (2)" && Settings.Instance.checkKeyCasco && Settings.Instance.checkKeyChaleco)
         {
             Debug.Log("Listo para entrar");
-            if (Settings.Instance.language == Language.Espanol)
+            if (GlobalSettings.Instance.language == Language.Espanol)
             {
                 audioManagerAdvertencia.clip = audioFinalESP;
                 audioManagerAdvertencia.Play();
@@ -33,7 +33,7 @@ public class ChangeScene : MonoBehaviour
                 // SceneManager.LoadScene("Example");
                 x.ChangeScene(3, "Example");
             }
-            else if (Settings.Instance.language == Language.English)
+            else if (GlobalSettings.Instance.language == Language.English)
             {
                 audioManagerAdvertencia.clip = audioFinalENG;
                 audioManagerAdvertencia.Play();
@@ -47,13 +47,13 @@ public class ChangeScene : MonoBehaviour
             if (!Settings.Instance.checkKeyCasco || !Settings.Instance.checkKeyChaleco)
             {
 
-                if (Settings.Instance.language == Language.Espanol)
+                if (GlobalSettings.Instance.language == Language.Espanol)
                 {
                     audioManagerAdvertencia.clip = audioAdvertenciaESP;
                     audioManagerAdvertencia.Play();
 
                 }
-                else if (Settings.Instance.language == Language.English)
+                else if (GlobalSettings.Instance.language == Language.English)
                 {
                     audioManagerAdvertencia.clip = audioAdvertenciaENG;
                     audioManagerAdvertencia.Play();

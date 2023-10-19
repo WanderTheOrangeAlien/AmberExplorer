@@ -112,7 +112,7 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
 
         // Si hemos llegado al final de la lista de clips, detenerse
-        if (Settings.Instance.language == Language.Espanol)
+        if (GlobalSettings.Instance.language == Language.Espanol)
         {
             if (currentClipIndex >= audioClips.Length)
             {
@@ -120,7 +120,7 @@ public class ControladorMediaV1_1 : MonoBehaviour
                 return;
             }
         }
-        else if (Settings.Instance.language == Language.English)
+        else if (GlobalSettings.Instance.language == Language.English)
         {
             if (currentClipIndex >= audioClipsENG.Length)
             {
@@ -140,12 +140,12 @@ public class ControladorMediaV1_1 : MonoBehaviour
         }
 
         // Establecer el siguiente clip para el AudioSource y reproducirlo
-        if (Settings.Instance.language == Language.English)
+        if (GlobalSettings.Instance.language == Language.English)
         {
             audioSource.clip = audioClipsENG[currentClipIndex];
             audioSource.PlayDelayed(delay);
         }
-        else if (Settings.Instance.language == Language.Espanol)
+        else if (GlobalSettings.Instance.language == Language.Espanol)
         {
             audioSource.clip = audioClips[currentClipIndex];
             audioSource.PlayDelayed(delay);
@@ -225,7 +225,7 @@ public class ControladorMediaV1_1 : MonoBehaviour
         }
 
 
-        if (Settings.Instance.language == Language.Espanol)
+        if (GlobalSettings.Instance.language == Language.Espanol)
         {
             //Pasar al siguiente audio, no hay que hacer ninguna accion
             if ((currentClipIndex == 0 || currentClipIndex == 1) && !audioSource.isPlaying)
@@ -261,7 +261,7 @@ public class ControladorMediaV1_1 : MonoBehaviour
 
         }
 
-        else if (Settings.Instance.language == Language.English)
+        else if (GlobalSettings.Instance.language == Language.English)
         {
             #region Cosas de RU
             if (audioWasPlaying != audioSource.isPlaying) //there was a change in audioSource.isPlaying
