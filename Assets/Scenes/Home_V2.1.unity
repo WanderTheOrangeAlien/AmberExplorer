@@ -2345,10 +2345,14 @@ MonoBehaviour:
   panelNameConvention: Panel
   buttonRightNameConvention: Btn_Right
   buttonLeftNameConvention: Btn_Left
+  buttonBackNameConvention: 
   panelCount: 3
   panels: []
   btnsRight: []
   btnsLeft: []
+  panelParent: {fileID: 0}
+  btnBack: {fileID: 0}
+  isHiddenByDefault: 0
 --- !u!1 &75208665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6804,10 +6808,14 @@ MonoBehaviour:
   panelNameConvention: Panel
   buttonRightNameConvention: Btn_Right
   buttonLeftNameConvention: Btn_Left
+  buttonBackNameConvention: 
   panelCount: 2
   panels: []
   btnsRight: []
   btnsLeft: []
+  panelParent: {fileID: 0}
+  btnBack: {fileID: 0}
+  isHiddenByDefault: 0
 --- !u!1 &308101622
 GameObject:
   m_ObjectHideFlags: 0
@@ -12193,10 +12201,14 @@ MonoBehaviour:
   panelNameConvention: Panel
   buttonRightNameConvention: Btn_Right
   buttonLeftNameConvention: Btn_Left
+  buttonBackNameConvention: 
   panelCount: 4
   panels: []
   btnsRight: []
   btnsLeft: []
+  panelParent: {fileID: 0}
+  btnBack: {fileID: 0}
+  isHiddenByDefault: 0
 --- !u!1 &578237347
 GameObject:
   m_ObjectHideFlags: 0
@@ -24029,10 +24041,14 @@ MonoBehaviour:
   panelNameConvention: Panel
   buttonRightNameConvention: Btn_Right
   buttonLeftNameConvention: Btn_Left
+  buttonBackNameConvention: 
   panelCount: 2
   panels: []
   btnsRight: []
   btnsLeft: []
+  panelParent: {fileID: 0}
+  btnBack: {fileID: 0}
+  isHiddenByDefault: 0
 --- !u!1 &1148094717
 GameObject:
   m_ObjectHideFlags: 0
@@ -25188,6 +25204,8 @@ MonoBehaviour:
   isGravityOverriden: 1
   gravityMultiplier: 3.5
   isHarnessOn: 0
+  isXRGrabOverriden: 0
+  language: 0
 --- !u!1 &1208233191
 GameObject:
   m_ObjectHideFlags: 0
@@ -28697,10 +28715,14 @@ MonoBehaviour:
   panelNameConvention: Panel
   buttonRightNameConvention: Btn_Right
   buttonLeftNameConvention: Btn_Left
+  buttonBackNameConvention: 
   panelCount: 2
   panels: []
   btnsRight: []
   btnsLeft: []
+  panelParent: {fileID: 0}
+  btnBack: {fileID: 0}
+  isHiddenByDefault: 0
 --- !u!1 &1377587415
 GameObject:
   m_ObjectHideFlags: 0
@@ -39709,10 +39731,14 @@ MonoBehaviour:
   panelNameConvention: Panel
   buttonRightNameConvention: Btn_Right
   buttonLeftNameConvention: Btn_Left
+  buttonBackNameConvention: 
   panelCount: 2
   panels: []
   btnsRight: []
   btnsLeft: []
+  panelParent: {fileID: 0}
+  btnBack: {fileID: 0}
+  isHiddenByDefault: 0
 --- !u!1 &1856345298
 GameObject:
   m_ObjectHideFlags: 0
@@ -42893,7 +42919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948453810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.11, y: 1.49, z: 20.66}
+  m_LocalPosition: {x: 23.04, y: 1.49, z: 7.56}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:

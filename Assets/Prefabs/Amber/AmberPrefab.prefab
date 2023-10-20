@@ -488,7 +488,7 @@ MonoBehaviour:
   disappearSound: {fileID: 8300000, guid: 540eba59010c64944bcd4237dcca2b42, type: 3}
   collectedVoiceOver_ESP: {fileID: 8300000, guid: 325eda81e0683e546af4f3b3450d0329, type: 3}
   collectedVoiceOver_ENG: {fileID: 8300000, guid: 4fc9dc727ee575a4181e8b16c56423d3, type: 3}
-  amber: {fileID: 247495084042112820}
+  targetModel: {fileID: 0}
   isCollected: 0
 --- !u!1 &5689695869026038753
 GameObject:
@@ -517,7 +517,7 @@ Transform:
   m_GameObject: {fileID: 5689695869026038753}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 10.908, y: 10.908, z: 10.908}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1443352814395616579}
@@ -717,11 +717,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92c9d686af870d4c9a9d1583f9de697, type: 3}
---- !u!1 &247495084042112820 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6328054073671078461, guid: a92c9d686af870d4c9a9d1583f9de697, type: 3}
-  m_PrefabInstance: {fileID: 6106464176792444169}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3324548061578388256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8835409400640011817, guid: a92c9d686af870d4c9a9d1583f9de697, type: 3}
